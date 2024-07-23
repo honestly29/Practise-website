@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Webpage</title>
+    </head>
+
+    <body>
+        <h1>HTML commands:</h1>
+        
+        <!-- Lists -->
+        <h2>How to Create a List:</h2>
+        <ul>
+            <li><p></p>&lt;ul&gt;&lt;/ul&gt; is the parent tag for an <b>unordered</b> list. The items in the list are each enclosed in the &lt;li&gt;&lt;/li&gt; tag.</li>
+        </ul>
+        <ol>
+            <li><p></p>&lt;ol&gt;&lt;/ol&gt; is the parent tag for an <b>ordered</b> list. The items in the list are each enclosed in the &lt;li&gt;&lt;/li&gt; tag.</li>
+        </ol>
+
+
+        <!-- Basic tags -->
+        <h2>Some Basic Tags:</h2>
+        <ul>
+            <li><p>&lt;p&gt;&lt;/p&gt; is the paragraph container</p></li>
+            <li><p><h3>&lt;h1-6&gt;&lt;/h1-6&gt; is the header container</h3></p></li>
+            <li><p><strong>&lt;strong&gt;&lt;/strong&gt; makes text bold</strong></p></li>
+            <li><p><em>&lt;em&gt;&lt;/em&gt; makes text etalic</em></p></li>
+            <li>&lt;a href="" target="_blank" rel="noopener noreferrer"&gt;&lt;/a&gt; <a href="https://www.w3schools.com/tags/tag_a.asp" target="_blank" rel="noopener noreferrer">is the anchor element it turns the content inside of it into a link. You put the link inside the href. We add target so that the link opens in another tab and we add rel for security reasons</a> 
+            <p>links to other pages are called <b>Absolute links</b> while links to other pages within our website are called <b>Relative links</b></p>
+            <p>This is an example of a Relative link: <a href="./pages/about.html">About</a>. We do not need target or rel in relative links</p></li>
+            <li>&lt;img&gt;src="link_to_img" alt="description_of_img" height="" width=""> Adds an img. It is self closing. The alt tag is used by screen readers and appears instead of the img if it fails to load. It is good practise to always add the height and width</li>
+        </ul>
+
+        <!-- Tips -->
+        <h2>Helpful Tips & Shortcuts</h2>
+        <p>Cmd + / is a shortcut to writing comments in a HTML file</p>
+        <p>Writing lorem then pressing tab auto generates lorem ipsum text</p>
+        <p>When we nest elements with in another element, we create a 
+            parent and child relationship between them. Elements at the same
+            level of nesting are considered to be siblings.
+        </p>
+        <p>It is best practise to start a Relative link with a '.' to prevent bugs. E.g: ./pages/about.html</p>
+        <p>../ goes to the parent directory of the current directory</p>
+
+        <!-- GIT -->
+        <h2>Tips for Git</h2>
+        <p>Having good commit messages will allow you (or other developers) to quickly see what changes were made and why.
+            It will also be good when you come back to a project after leaving it for a while.    
+        </p>
+        <p>A good commit messgae should have a:</p>
+        <ul>
+            <li><b>A Subject</b>: a brief summary of the change you made to the codebase written in the imperative. Limit to ~50 characters. Capatalised. Dont end the subject line with a period.</li>
+            <li><b>A Body</b>: a concise yet clear description of what you did. Keep to ~70 characters. Explain <em>what</em> and <em>why</em></li>
+            <li>Separated by a new/blank line.</li>
+        </ul>
+        <p>Some git commits don't need a body. For example:
+            <p><em>Fix typo in introduction to user guide</em></p>
+            In cases like this using git commit -m "" is fine. However, in cases where you need a body you're better off writing the message in a proper text editor. So use git commit
+        </p>
+        <p>General cases for when to commit are:</p>
+        <ul>
+            <li>When you get a piece of code you are working on to function like you want to.</li>
+            <li>When you fix a typo.</li>
+            <li>When you fix a bug.</li>
+        </ul>        
+
+        <!-- Images -->
+        <h2>Images</h2>
+        <ul>
+            <li><b>JPG images</b>: are designed for handling large colour palettes making them great for images with lots of gradients in them. However, they don't allow for transparent pixels.</li>
+            <li><b>GIF images</b>: are used for simple animations but they are limited in terms of colour palette. They allow for transparent pixels but in a binary way, meaning you can;t have semi-transparent pixels.</li>
+            <li><b>PNG images</b>: are good for diagrams and icons. They deal with transparancy the best. However, for photos a PNG file will be bigger than a JPG file.</li>
+            <li><b>SVG images</b>: unlike the others, which are pixel-based formats, SVG imgs are vector-based. This means they can scale up or down to any dimension without loosing quality. This makes them ideal for responsive designs. They also work well with transparancy. This makes them the overall best option. Except for cases when the img has a lot of text in it.</li>
+        </ul>
+        <img src="./images/dog.jpg" alt="Dog" height="310" width="310">
+
+    </body>
+</html>
+
