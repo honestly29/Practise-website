@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Notes</title>
+    </head>
+    <body>
+        <h1>CSS commands:</h1>
+
+        <a href="../index.html">Back to HTML Notes</a>
+
+        <p>The most basic CSS syntax is made up of a selector and a semicolon-separated list of declarations, with each of those declarations being made up of a property-value pair. E.g:</p>
+        <p><b>div.bold-text {
+            <p>font-weight: 700;</p>
+        }
+        </b></p>
+
+        <!-- Selectors -->
+        <h2>Selectors</h2>
+        <p>Selectors refer to the HTML elements to which the CSS rules apply. They are what is being "selected" for each rule.</p>
+        <ul>
+            <li><b>Universal Selector (*)</b>: will select elements of any type. Represented by an asterisk. E.g:
+            <p>* {
+                <p>color: purple;</p>
+            }
+            </p>
+            <p>Every element would have the colour purple applied to it.</p>
+            </li>
+
+            <li><b>Type Selector (element type)</b>: will select all elements of a given type. Represented by an stating the element. E.g:
+                <p>div {
+                    <p>color: white;</p>
+                }
+                </p>
+                <p>Will change all &lt;div&gt;&lt;/div&gt; elements to white but ignore other elements </p>
+            </li>
+
+            <li><b>Class Selector (.class_name)</b>: will select all elements of a given class, which is just an attribute you place on an HTML element. Represented by a period followed by the name of the class attribute. E.g:
+                <p>&lt;div class="alert_text"&gt;Emergency!&lt;/div&gt;</p>
+                <p>.alert_text {
+                    <p>color: red;</p>
+                }
+                </p>
+                <p>Will change all elements with the &lt;div&gt; class="alert_text"&lt;/div&gt; class attribute</p>
+                <p>Note: you can use the same class on as many elements as you want and HTML elements can have multiple class elements.</p>
+            </li>
+            
+            <li><b>ID Selector (#id_name)</b>: will select all elements of a given ID, which is an attribute you place on an HTML element, similar to a Class. The major difference is that an element can only have <b>one</b> ID. Represented by a hashtag followed by the name of the ID attribute. E.g:
+                <p>&lt;div id="title"&gt;My Website&lt;/div&gt;</p>
+                <p>.title {
+                    <p>background_color: red;</p>
+                }
+                </p>
+                <p>Will change all elements with the &lt;div&gt; id="title"&lt;/div&gt; ID attribute</p>
+                <p>Note: IDs are only usually used when taking advantage of specificity or having links redirect to a section on the current page. You should use IDs sparingly (if at all) and opt for classes instead. </p>
+            </li>
+            
+
+        </ul>
+        
+    </body>
+</html>
