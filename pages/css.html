@@ -2,10 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../styles.css">
         <title>CSS Notes</title>
     </head>
     <body>
-        <h1>CSS commands:</h1>
+        <h1 class="page-title">CSS commands:</h1>
 
         <a href="../index.html">Back to HTML Notes</a>
 
@@ -14,104 +15,149 @@
             <p>font-weight: 700;</p>
         }
         </b></p>
-    
+
+        <!-- The Cascade -->
+        <div class="section cascade">
+            <h2>The Cascade</h2>
+            <p>Some unexpected results in our styling such as, some elements creating a large "gap" between themselves and other elements, or why buttons look the way they do are caused by the default styles of the browser. However, most unexpected results are caused by not understanding the 'cascade'</p>
+
+            <p>The cascade is what determines which rules actually get applied to our HTML. There are different factors that the cascade uses to determine this.</p>
+
+            <ul>
+                <li><b>Specificity</b>: A CSS declaration that is more specific will take precedence over less specific ones.
+                <ol>
+                    <li>In terms of selectors, Inline styles have the highest specificity</li>
+                    <li>ID selectors</li>
+                    <li>Class selectors</li>
+                    <li>Type selectors</li>
+                </ol>
+                <p>Specificity will only be taken into account when an element has multiple, conflicting declarations targetting it, sort of like a tie-breaker. When there is no declaration with a selector of higher specificity, a rule with a greater number of selectors of the same type will take precedence over another rule with fewer selectors of the same type.</p>
+                <p>Special symbols like the universal selector (*) as well as combinators (+, ~, >, and an empty space) are ignored when determining the level of specificity.</p></li>
+
+                <li><b>Inheritance</b>: Inheritance refers to certain CSS properties that, when applied to an element, are inherited by that element's descendants, even if we don't explicitly write a rule for those descendants. Typography-based properties (color, font-size, font-family, etc.) are usually inherited, while most other properties aren't. This exception to this is when directly targetting an element, which always beats inheritance. E.g:
+                <p>&lt;div id="parent"&gt;</p></li>
+                <p>       &lt;div class="child"&gt;&lt;/div&gt;</p>
+                <p>&lt;/div&gt;</p>
+
+                <p>/* styles.css */</p>
+                <p>#parent {
+                    <p>color: red;</p>
+                    }
+                </p>
+                <p>.child {</p>
+                    <p>color: blue;
+                    }
+                    </p>
+                
+                <p>Despite the parent element having higher specificity with an ID, the child element would have the color: blue style applied to it because that declaration directly targets it.</p>
+
+                <li><b>Rule Order</b>: The final factor. After every other factor has been taken into account and there are still multiple conflicting rules targetting an element the cascade will choose the <b>last</b> element defined.</li>    
+            </ul>
+        </div>
+
+        
 
         <!-- Adding CSS to HTML -->
-        <h2>Adding CSS to HTML</h2>
-        <p><b>External CSS</b>: The most common method involves creating a separate file for the CSS and linking it inside of an HTML's &lt;head&gt;&lt;/head&gt; tag E.g: </p>
-        <p>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
-        <p>A couple of pros of this method are that it keeps our HTML and CSS separated, which results in the HTML file being smaller and making things look cleaner and we only need to edit the CSS in one place, which is especially handy for websites with many pages that all share similar styles.</p>
+        <div class="section adding">
+            <h2>Adding CSS to HTML</h2>
+            <p><b>External CSS</b>: The most common method involves creating a separate file for the CSS and linking it inside of an HTML's &lt;head&gt;&lt;/head&gt; tag E.g: </p>
+            <p>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
+            <p>A couple of pros of this method are that it keeps our HTML and CSS separated, which results in the HTML file being smaller and making things look cleaner and we only need to edit the CSS in one place, which is especially handy for websites with many pages that all share similar styles.</p>
 
-        <p><b>Internal CSS</b>: This method involves adding the CSS within the HTML file itself instead of creating a completely separate file. With this method, you place all the CSS methods within the &lt;style&gt;&lt;/style&gt;</p> tag which is placed inside the &lt;head&gt;&lt;/head&gt; tags.
-        <p>This method can be good for adding unique styles to a single page of a website.</p>
+            <p><b>Internal CSS</b>: This method involves adding the CSS within the HTML file itself instead of creating a completely separate file. With this method, you place all the CSS methods within the &lt;style&gt;&lt;/style&gt;</p> tag which is placed inside the &lt;head&gt;&lt;/head&gt; tags.
+            <p>This method can be good for adding unique styles to a single page of a website.</p>
 
-        <p><b>Inline CSS</b>: This method makes it possible to add styles directly to HTML elements E.g:</p>
-        <p>&lt;div style="color: white; background-color: black;"&gt;...&lt;/div&gt;</p>
-        <p>If you need to add a unique style for a single method, this element is fine but it isn't usually recommended because it can make the HTML unnecessarily bloated.</p>
+            <p><b>Inline CSS</b>: This method makes it possible to add styles directly to HTML elements E.g:</p>
+            <p>&lt;div style="color: white; background-color: black;"&gt;...&lt;/div&gt;</p>
+            <p>If you need to add a unique style for a single method, this element is fine but it isn't usually recommended because it can make the HTML unnecessarily bloated.</p>
+        </div>
+
 
         <!-- Basic commands -->
-        <h2>Basic Commands</h2>
-        <ul>
-            <li><b>color</b>: sets an elements text colour. Accepts keyword (red), HEX, RGB and HSL values</li>
-            <li><b>background-color</b>: sets the background colour of an element. Also accepts keyword, HEX, RGB and HSL values</li>
-            <li><b>font-family</b>: can be a single value or a comma-separated list of values that determine what font an element uses. If the browser cannot find or support the font it will go to the next one in the list. Fonts will either be a font family name like <em>"Times New Roman"</em> or a generic family name like <em>serif</em> (generic family names don't use quotes)</li>
-            <li><b>font-size</b>: sets font size in pixels e.g 22px</li>
-            <li><b>font-weight</b>: sets the boldness of text. Accepts keyword (bold), or a number between 1 and 1000.</li>
-            <li><b>text-align</b>: will align text horizontally within an element. It takes common keywords like center.</li>
-            <li><b>img height and width</b> by default will be the same as the actual image file size and height. If you want to the adjust the size of an image without changing its proportions set height to <em>auto</em> and adjust width to be the new size in pixels. It is best practise to add height and width properties for an img in both the HTML and CSS files.</li>
-        </ul>
+        <div class="section commands">
+            <h2>Basic Commands</h2>
+            <ul>
+                <li><b>color</b>: sets an elements text colour. Accepts keyword (red), HEX, RGB and HSL values</li>
+                <li><b>background-color</b>: sets the background colour of an element. Also accepts keyword, HEX, RGB and HSL values</li>
+                <li><b>font-family</b>: can be a single value or a comma-separated list of values that determine what font an element uses. If the browser cannot find or support the font it will go to the next one in the list. Fonts will either be a font family name like <em>"Times New Roman"</em> or a generic family name like <em>serif</em> (generic family names don't use quotes)</li>
+                <li><b>font-size</b>: sets font size in pixels e.g 22px</li>
+                <li><b>font-weight</b>: sets the boldness of text. Accepts keyword (bold), or a number between 1 and 1000.</li>
+                <li><b>text-align</b>: will align text horizontally within an element. It takes common keywords like center.</li>
+                <li><b>img height and width</b> by default will be the same as the actual image file size and height. If you want to the adjust the size of an image without changing its proportions set height to <em>auto</em> and adjust width to be the new size in pixels. It is best practise to add height and width properties for an img in both the HTML and CSS files.</li>
+            </ul>
+        </div>
+
 
         <!-- Selectors -->
-        <h2>Selectors</h2>
-        <p>Selectors refer to the HTML elements to which the CSS rules apply. They are what is being "selected" for each rule.</p>
-        <ul>
-            <li><b>Universal Selector (*)</b>: will select elements of any type. Represented by an asterisk. E.g:
-            <p>* {
-                <p>color: purple;</p>
-            }
-            </p>
-            <p>Every element would have the colour purple applied to it.</p>
-            </li>
-
-            <li><b>Type Selector (element type)</b>: will select all elements of a given type. Represented by an stating the element. E.g:
-                <p>div {
-                    <p>color: white;</p>
+        <div class="section selectors">
+            <h2>Selectors</h2>
+            <p>Selectors refer to the HTML elements to which the CSS rules apply. They are what is being "selected" for each rule.</p>
+            <ul>
+                <li><b>Universal Selector (*)</b>: will select elements of any type. Represented by an asterisk. E.g:
+                <p>* {
+                    <p>color: purple;</p>
                 }
                 </p>
-                <p>Will change all &lt;div&gt;&lt;/div&gt; elements to white but ignore other elements </p>
-            </li>
+                <p>Every element would have the colour purple applied to it.</p>
+                </li>
 
-            <li><b>Class Selector (.class_name)</b>: will select all elements of a given class, which is just an attribute you place on an HTML element. Represented by a period followed by the name of the class attribute. E.g:
-                <p>&lt;div class="alert_text"&gt;Emergency!&lt;/div&gt;</p>
-                <p>.alert_text {
-                    <p>color: red;</p>
-                }
-                </p>
-                <p>Will change all elements with the &lt;div&gt; class="alert_text"&lt;/div&gt; class attribute</p>
-                <p>Note: you can use the same class on as many elements as you want and HTML elements can have multiple class elements.</p>
-            </li>
-            
-            <li><b>ID Selector (#id_name)</b>: will select all elements of a given ID, which is an attribute you place on an HTML element, similar to a Class. The major difference is that an element can only have <b>one</b> ID. Represented by a hashtag followed by the name of the ID attribute. E.g:
-                <p>&lt;div id="title"&gt;My Website&lt;/div&gt;</p>
-                <p>.title {
-                    <p>background_color: red;</p>
-                }
-                </p>
-                <p>Will change all elements with the &lt;div&gt; id="title"&lt;/div&gt; ID attribute</p>
-                <p>Note: IDs are only usually used when taking advantage of specificity or having links redirect to a section on the current page. You should use IDs sparingly (if at all) and opt for classes instead. </p>
-            </li>
-            
-            <li><b>Grouping Selector</b>: if we have two groups of elements that share some of their style declarations, we can group these two selectors together as a comma-separated list. E.g:
-                <p>.read,</p>
-                    <p>.undread {
-                    <p>color: white;</p>
-                    <p>background-color: black;</p>
-                }
-                </p>
-                <p>You can still have individual instances of these elements with their unique declarations.</p>
-            </li>
+                <li><b>Type Selector (element type)</b>: will select all elements of a given type. Represented by an stating the element. E.g:
+                    <p>div {
+                        <p>color: white;</p>
+                    }
+                    </p>
+                    <p>Will change all &lt;div&gt;&lt;/div&gt; elements to white but ignore other elements </p>
+                </li>
 
-            <li><b>Chaining Selector</b>: can chain classes which have multiple names E.g:
-                <p>&lt;div class="subsection header"&gt;Latest Posts&lt;/div&gt;</p>
-                <p>&lt;div class="subsection preview"&gt;This is a preview&lt;/div&gt;</p>
-                <p>.subsection.header {
-                    <p>color: red;</p>
-                }
-                </p>
-                <p>Will change all elements with the subsection and header classes.</p>
-            </li>
+                <li><b>Class Selector (.class_name)</b>: will select all elements of a given class, which is just an attribute you place on an HTML element. Represented by a period followed by the name of the class attribute. E.g:
+                    <p>&lt;div class="alert_text"&gt;Emergency!&lt;/div&gt;</p>
+                    <p>.alert_text {
+                        <p>color: red;</p>
+                    }
+                    </p>
+                    <p>Will change all elements with the &lt;div&gt; class="alert_text"&lt;/div&gt; class attribute</p>
+                    <p>Note: you can use the same class on as many elements as you want and HTML elements can have multiple class elements.</p>
+                </li>
+                
+                <li><b>ID Selector (#id_name)</b>: will select all elements of a given ID, which is an attribute you place on an HTML element, similar to a Class. The major difference is that an element can only have <b>one</b> ID. Represented by a hashtag followed by the name of the ID attribute. E.g:
+                    <p>&lt;div id="title"&gt;My Website&lt;/div&gt;</p>
+                    <p>.title {
+                        <p>background_color: red;</p>
+                    }
+                    </p>
+                    <p>Will change all elements with the &lt;div&gt; id="title"&lt;/div&gt; ID attribute</p>
+                    <p>Note: IDs are only usually used when taking advantage of specificity or having links redirect to a section on the current page. You should use IDs sparingly (if at all) and opt for classes instead. </p>
+                </li>
+                
+                <li><b>Grouping Selector</b>: if we have two groups of elements that share some of their style declarations, we can group these two selectors together as a comma-separated list. E.g:
+                    <p>.read,</p>
+                        <p>.undread {
+                        <p>color: white;</p>
+                        <p>background-color: black;</p>
+                    }
+                    </p>
+                    <p>You can still have individual instances of these elements with their unique declarations.</p>
+                </li>
 
-            <li><b>Descendant Combinator</b>: selects classes that are nested inside other classes E.g:
-                <p>.ancestor .contents {
-                    <p>color: red;</p>
-                }
-                </p>
-                <p>Will change elements of .contents, only if it is nested within .ancestor, regardless of how deep that nesting is.</p>
-            </li>
+                <li><b>Chaining Selector</b>: can chain classes which have multiple names E.g:
+                    <p>&lt;div class="subsection header"&gt;Latest Posts&lt;/div&gt;</p>
+                    <p>&lt;div class="subsection preview"&gt;This is a preview&lt;/div&gt;</p>
+                    <p>.subsection.header {
+                        <p>color: red;</p>
+                    }
+                    </p>
+                    <p>Will change all elements with the subsection and header classes.</p>
+                </li>
 
+                <li><b>Descendant Combinator</b>: selects classes that are nested inside other classes E.g:
+                    <p>.ancestor .contents {
+                        <p>color: red;</p>
+                    }
+                    </p>
+                    <p>Will change elements of .contents, only if it is nested within .ancestor, regardless of how deep that nesting is.</p>
+                </li>
+            </ul>
+        </div>
 
-            
-        </ul>
-        
     </body>
 </html>

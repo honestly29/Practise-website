@@ -1,0 +1,16 @@
+* {
+    font-size: 26px;
+}
+
+.page-title {
+    font-size: 34px;
+}
+
+.section {
+    padding-bottom: 20px;
+}
+
+.section.lists,
+.section.cascade {
+    padding-top: 20px;
+}
