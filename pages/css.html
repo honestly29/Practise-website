@@ -14,6 +14,32 @@
             <p>font-weight: 700;</p>
         }
         </b></p>
+    
+
+        <!-- Adding CSS to HTML -->
+        <h2>Adding CSS to HTML</h2>
+        <p><b>External CSS</b>: The most common method involves creating a separate file for the CSS and linking it inside of an HTML's &lt;head&gt;&lt;/head&gt; tag E.g: </p>
+        <p>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
+        <p>A couple of pros of this method are that it keeps our HTML and CSS separated, which results in the HTML file being smaller and making things look cleaner and we only need to edit the CSS in one place, which is especially handy for websites with many pages that all share similar styles.</p>
+
+        <p><b>Internal CSS</b>: This method involves adding the CSS within the HTML file itself instead of creating a completely separate file. With this method, you place all the CSS methods within the &lt;style&gt;&lt;/style&gt;</p> tag which is placed inside the &lt;head&gt;&lt;/head&gt; tags.
+        <p>This method can be good for adding unique styles to a single page of a website.</p>
+
+        <p><b>Inline CSS</b>: This method makes it possible to add styles directly to HTML elements E.g:</p>
+        <p>&lt;div style="color: white; background-color: black;"&gt;...&lt;/div&gt;</p>
+        <p>If you need to add a unique style for a single method, this element is fine but it isn't usually recommended because it can make the HTML unnecessarily bloated.</p>
+
+        <!-- Basic commands -->
+        <h2>Basic Commands</h2>
+        <ul>
+            <li><b>color</b>: sets an elements text colour. Accepts keyword (red), HEX, RGB and HSL values</li>
+            <li><b>background-color</b>: sets the background colour of an element. Also accepts keyword, HEX, RGB and HSL values</li>
+            <li><b>font-family</b>: can be a single value or a comma-separated list of values that determine what font an element uses. If the browser cannot find or support the font it will go to the next one in the list. Fonts will either be a font family name like <em>"Times New Roman"</em> or a generic family name like <em>serif</em> (generic family names don't use quotes)</li>
+            <li><b>font-size</b>: sets font size in pixels e.g 22px</li>
+            <li><b>font-weight</b>: sets the boldness of text. Accepts keyword (bold), or a number between 1 and 1000.</li>
+            <li><b>text-align</b>: will align text horizontally within an element. It takes common keywords like center.</li>
+            <li><b>img height and width</b> by default will be the same as the actual image file size and height. If you want to the adjust the size of an image without changing its proportions set height to <em>auto</em> and adjust width to be the new size in pixels. It is best practise to add height and width properties for an img in both the HTML and CSS files.</li>
+        </ul>
 
         <!-- Selectors -->
         <h2>Selectors</h2>
@@ -55,7 +81,36 @@
                 <p>Note: IDs are only usually used when taking advantage of specificity or having links redirect to a section on the current page. You should use IDs sparingly (if at all) and opt for classes instead. </p>
             </li>
             
+            <li><b>Grouping Selector</b>: if we have two groups of elements that share some of their style declarations, we can group these two selectors together as a comma-separated list. E.g:
+                <p>.read,</p>
+                    <p>.undread {
+                    <p>color: white;</p>
+                    <p>background-color: black;</p>
+                }
+                </p>
+                <p>You can still have individual instances of these elements with their unique declarations.</p>
+            </li>
 
+            <li><b>Chaining Selector</b>: can chain classes which have multiple names E.g:
+                <p>&lt;div class="subsection header"&gt;Latest Posts&lt;/div&gt;</p>
+                <p>&lt;div class="subsection preview"&gt;This is a preview&lt;/div&gt;</p>
+                <p>.subsection.header {
+                    <p>color: red;</p>
+                }
+                </p>
+                <p>Will change all elements with the subsection and header classes.</p>
+            </li>
+
+            <li><b>Descendant Combinator</b>: selects classes that are nested inside other classes E.g:
+                <p>.ancestor .contents {
+                    <p>color: red;</p>
+                }
+                </p>
+                <p>Will change elements of .contents, only if it is nested within .ancestor, regardless of how deep that nesting is.</p>
+            </li>
+
+
+            
         </ul>
         
     </body>
