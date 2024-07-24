@@ -11,6 +11,7 @@
 }
 
 .section.lists,
-.section.cascade {
+.section.cascade,
+.section.inspecting {
     padding-top: 20px;
 }
