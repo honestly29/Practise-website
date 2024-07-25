@@ -17,6 +17,52 @@
         </b></p>
 
         <!-- The Box Model -->
+        <div class="section boxmodel">
+            <h2>The Box Model</h2>
+            <p>The most important skills you need to master with CSS are <em>positioning</em> and <em>layout</em>.</p>
+
+            <p>Every single thing on a webpage is a rectangular box. Theses boxes can have other boxes in them and can sit alongside one another. You can get a rough idea of this by adding an outline to every element on the page like this:</p>
+
+            <p>* {
+                <p>outline: 2px solid red;</p>
+                }
+            </p>
+            <img src="../images/webpage-boxes.png" alt="webpage boxes" height="auto" width="500">
+
+            <p>You can use the browser's inspector to view the pages boxes but clicking the + button in the top right of the Styles panel within the Elements tab.</p>
+
+            <p>Common commands that affect these boxes:</p>
+            <ul>
+                <li><b>padding</b> increases the space between the border of a box and the content of the box.</li>
+                <li><b>border</b> adds space between the margin and the padding.</li>
+                <li><b>margin</b> increases the space between the borders of a box and the border of adjacent boxes. Margins are set using lengths, percentages, or the keyword <em>auto</em>. They can also have negative lengths which makes the margin smaller.</li>
+                
+                <li><img src="../images/padding-border-margin.png" alt="padding border and margin effects" height="auto" width="500"></li>
+            </ul>
+
+            <p>Using <b>box-sizing: border-box</b>; is recommended for added simplicity when styling.</p>
+
+            <p>In a lot of cases, padding and margin are set to 0 at the start of a CSS file (using *) just to reset everything.</p>
+
+            <p>Box margins collapse into each other, meaning that their amounts do not get added together and instead the bigger value becomes the margin.</p>
+
+            <h3>Block vs Inline</h3>
+            <p>CSS has two box types: <b>block</b> and <b>inline</b> boxes, which determine element behavior and interaction. They are set using the <em>display</em> command.</p>
+            
+            <p><b>block</b>: Block elements will appear on the page stacked atop each other, each new element starting on a new line. Most of the elements that we have seen so far are block elements (display: block). </p>
+
+            <p><b>inline</b>: Do not start on a new line. They appear in line with whatever elements they are placed beside. An example of this is a link or &lt;a&gt; tag. If you stick one of these in the middle of a paragraph of text, the link will behave like a part of the paragraph. In general, you do not want to try to put extra padding or margin on inline elements.</p>
+
+            <p><b>inline-block</b>: Inline-block elements behave like inline elements, but with block-style padding and margin. Although, in practise, flexbox is more commonly used than inline-block.</p>
+
+            <h3>Divs and Spans</h3>
+            <p><b>div</b>: Div is a block element by default. It is commonly used as a container element to group other elements. Divs allow us to <em>divide</em> the page into different blocks and apply styling to those blocks.</p>
+
+            <p><b>span</b>: Span is an inline-level element by default. It can be used to group text content and inline HTML elements for styling and should only be used when no other semantic HTML element is appropriate.</p>
+        </div>
+        
+
+
 
         <!-- The Cascade -->
         <div class="section cascade">
@@ -86,6 +132,7 @@
                 <li><b>font-weight</b>: sets the boldness of text. Accepts keyword (bold), or a number between 1 and 1000.</li>
                 <li><b>text-align</b>: will align text horizontally within an element. It takes common keywords like center.</li>
                 <li><b>img height and width</b> by default will be the same as the actual image file size and height. If you want to the adjust the size of an image without changing its proportions set height to <em>auto</em> and adjust width to be the new size in pixels. It is best practise to add height and width properties for an img in both the HTML and CSS files.</li>
+                <li><b>text-align: center;</b>: centers text inside a box.</li>
             </ul>
         </div>
 
