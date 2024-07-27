@@ -1,17 +1,77 @@
 * {
     font-size: 26px;
+    margin-bottom: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-content {
+    margin: 5px;
 }
 
 .page-title {
     font-size: 34px;
+    text-align: center;
 }
 
 .section {
     padding-bottom: 20px;
 }
 
+h2 {
+    margin-top: 10px;
+}
+
 .section.lists,
-.section.cascade,
-.section.inspecting {
+.section.box-model,
+.section.inspecting,
+.section.containers-items {
     padding-top: 20px;
+}
+
+
+/* ----PAGE COLOURS---- */
+
+/* html colours */
+.section.lists {
+    background-color: lightsalmon;
+}
+
+.section.tags {
+    background-color: lightskyblue;
+}
+
+.section.tips {
+    background-color: lightyellow;
+}
+
+.section.git {
+    background-color: lightcyan;
+}
+
+.section.images,
+.section.commands {
+    background-color: lightgreen;
+}
+
+/* css colours */
+.section.box-model {
+    background-color: lightcoral;
+}
+
+.section.cascade {
+    background-color: lightblue;
+}
+
+.section.adding {
+    background-color: lightgoldenrodyellow;
+}
+
+.section.selectors {
+    background-color: lightpink;
+}
+
+/* debugging notes */
+.section.inspecting {
+    background-color: lightblue;
 }

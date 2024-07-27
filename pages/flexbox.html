@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../styles.css">
+        <title>Flexbox Notes</title>
+    </head>
+    <body>
+        <div class="page-content">
+            <h1 class="page-title">Flexbox Notes:</h1>
+
+            <a href="../index.html">Back to HTML Notes</a>
+
+            <p>Flexbox is a way to arrange items into rows or columns. These items will flex (i.e. grow or shrink) based on some rules that you can define.</p>
+
+            <div class="section containers-items">
+                <h2>Flex Containers & Flex Items</h2>
+
+                <p>Flexbox is not just a single CSS property but a whole tool box of of properties that you can use to put things where you need them. Some of these properties belong on the <em>flex container</em>, while some go on the <em>flex items.</em></p>
+
+                <p><b>flex container</b>: is any element that has <em>display: flex</em> on it.</p>
+
+                <p><b>flex item</b>: is any element that lives directly inside of a flex container</p>
+
+                <img src="../images/container-vs-item.png" alt="showcase of flex-container and flex-items" height="auto" width="900">
+
+                <p>Any element can be both a flex container and a flex item. You can put <em>display: flex</em> on a flex item and use flexbox to arrange <em>its</em> children.</p>
+
+                <img src="../images/flex-container-and-item.png" alt="showcase of flex item that is also a flex container" height="auto" width="900">
+
+                <p>Creating and nesting multiple flex containers and items is the primary way we use to build up complex layouts.</p>
+            </div>
+
+            <div class="section flex">
+                <h2>Flex</h2>
+                <p>The <b>flex</b> declaration is a shorthand for 3 properties that you can set on a flex item. These properties affect how flex items size themselves within their container. These properties are <em>flex-grow</em>, <em>flex-shrink</em>, <em>flex-basis</em>.</p>
+                <p>When just <em>flex: 1;</em> is put, it equates to <em>flex-grow: 1</em>, <em>flex-shrink: 1</em>, <em>flex-basis: 0</em>. So it would be <em>flex: 1 1 0</em>.</p>
+
+                <p><b>Flex-grow</b>: takes a single number as its value and determines the flex-item's "growth factor".
+                If <em>flex: 1</em> was applied to every div, then they would all grow the same amount. If instead we added <em>flex: 2</em> to one of the divs, then that div would grow to 2x the size of the others.</p>
+
+                <p><b>Flex-shrink</b>: similar to flex-grow, but instead sets the "shrink-factor" of a flex item.<em>flex-shrink</em> only ends up being applied if the size of all the flex items is larger than the parent container they are inside.</p>
+            
+
+                <p><b>Flex-basis</b>: sets the initial size of a flex item. Its usual value is <em>flex-basis: auto</em>.</p>
+
+                <p>In practise, you will not be using complex values for flex-grow, flex-shrink or flex-basis. You will generally set flex: 1; or if you want to keep certain divs from shrinking then flex-shrink: 0;.</p>
+            </div>
+
+            <div class="section axes">
+                <h2>Axes</h2>
+
+                <p>The default direction for a flex container is horizontal, or <em>row</em>, but you can change the direction to vertical, or <em>column</em>. You can change the direction using <em>flex-direction: column;</em>.</p>
+
+                <p>No matter which direction you're using, you need to think of your flex-containers as having 2 axes: the main axis and the cross axis. It is the direction of these axes that changes when the flex-direction is changed. In most cases, <em>row</em> puts the main axis horizontal (left-to-right), and column puts the main axis vertical (top-to-bottom)</p>
+
+                <p>Putting the shorthand <em>flex: 1</em> wont work when flex-direction is set to column.</p>
+
+            </div>
+        </div>
+    </body>
+</html>
